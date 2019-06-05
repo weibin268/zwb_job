@@ -2,7 +2,7 @@ from apscheduler.schedulers.background import BackgroundScheduler, BlockingSched
 import time
 
 
-def get_scheduler(blocking=True):
+def get_scheduler(blocking=False):
     scheduler = None
     if blocking:
         scheduler = BlockingScheduler()
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     def job1():
         print("job1")
 
-    scheduler = get_scheduler()
+    scheduler = get_scheduler(blocking=True)
     scheduler.add_job(job1, "interval", seconds=1)
 
     @scheduler.scheduled_job("cron", second="0/3", hour="*")
