@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="zwb_job",
-    version="1.0.2",
+    version="1.0.0",
     keywords=("util"),
     description="zwb_job",
     long_description="zwb_job",
