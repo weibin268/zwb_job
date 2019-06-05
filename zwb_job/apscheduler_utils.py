@@ -12,14 +12,16 @@ def get_scheduler(blocking=False):
 
 
 if __name__ == "__main__":
+    scheduler = get_scheduler()
+    scheduler.start()
+
     def job1():
         print("job1")
-
-    scheduler = get_scheduler(blocking=True)
     scheduler.add_job(job1, "interval", seconds=1)
 
     @scheduler.scheduled_job("cron", second="0/3", hour="*")
     def job2():
         print("job2")
 
-    scheduler.start()
+    while True:
+        time.sleep(1000)
